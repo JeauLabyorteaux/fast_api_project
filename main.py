@@ -13,9 +13,17 @@ class ContactForm(BaseModel):
     email: EmailStr
     message: str
 
+
+# HEALTH
+# Returns the health of FastAPI instance
+
 @app.get("/health", status_code=status.HTTP_200_OK)
 def health_check():
     return {"status":"healthy","service":"Lightsail through AWS"}
+
+
+# STATS
+# Basic (in-memory) counter, want to update this with something more interactive 
 
 @app.get("/stats", status_code=status.HTTP_200_OK)
 def get_stats():
@@ -24,6 +32,8 @@ def get_stats():
 
     return {"total_views":view_counter["views"]}
 
+# CONTACT
+# Basic contact form, not linked to anything but can be expanded to share contact info from users with me
 @app.post("/contact", status_code=status.HTTP_201_CREATED)
 def submit_contact(userContact: ContactForm):
 
