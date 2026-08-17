@@ -13,18 +13,18 @@ class ContactForm(BaseModel):
     email: EmailStr
     message: str
 
-@app.get("/api/health", status_code=status.HTTP_200_OK)
+@app.get("/health", status_code=status.HTTP_200_OK)
 def health_check():
     return {"status":"healthy","service":"Lightsail through AWS"}
 
-@app.get("/api/stats", status_code=status.HTTP_200_OK)
+@app.get("/stats", status_code=status.HTTP_200_OK)
 def get_stats():
 
     view_counter["views"] += 1
 
     return {"total_views":view_counter["views"]}
 
-@app.post("/api/contact", status_code=status.HTTP_201_CREATED)
+@app.post("/contact", status_code=status.HTTP_201_CREATED)
 def submit_contact(userContact: ContactForm):
 
     # Check for any errors
