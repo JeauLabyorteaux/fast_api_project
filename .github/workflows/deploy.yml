@@ -3,7 +3,7 @@ name: Deploy Python FastAPI to Lightsail
 on:
   push:
     branches:
-      - master  # ensure it only deploys when pushed to the main branch
+      - master  # ensure it only deploys when pushed to the main branch 
 
 jobs:
   deploy:
