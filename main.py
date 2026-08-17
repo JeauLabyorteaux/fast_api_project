@@ -6,6 +6,8 @@ app = FastAPI(title="Backend API")
 # simple in memory user counter
 view_counter = {"views":0}
 
+# test change
+
 class ContactForm(BaseModel):
     name: str
     email: EmailStr
